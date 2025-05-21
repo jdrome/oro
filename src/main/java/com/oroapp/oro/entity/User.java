@@ -7,6 +7,7 @@ import java.util.List;
 @Table( name = "users" )
 public class User {
 
+    // Properties
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,8 +18,12 @@ public class User {
 
     private String password; // passwords will be hashed prior to storing
 
+    // Relationship Mappings
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Transaction> transactions;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Budget> budgets;
 
     //Constructors
     public User() {}
@@ -41,5 +46,8 @@ public class User {
 
     public List<Transaction> getTransactions() { return transactions; }
     public void setTransactions(List<Transaction> transactions) { this.transactions = transactions; }
+
+    public List<Budget> getBudgets() { return budgets; }
+    public void setBudgets(List<Budget> budgets) { this.budgets = budgets; }
 
 }

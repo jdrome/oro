@@ -7,6 +7,7 @@ import java.time.LocalDate;
 @Entity
 public class Transaction {
 
+    // Properties
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,6 +16,7 @@ public class Transaction {
     private Double amount;
     private LocalDate date;
 
+    // Relationship Mappings
     @ManyToOne
     private Category category;
 
