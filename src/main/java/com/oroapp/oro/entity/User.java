@@ -12,7 +12,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String username;
 
     private String email;
 
@@ -29,15 +29,15 @@ public class User {
     public User() {}
 
     public User(String name, String email) {
-        this.name = name;
+        this.username = name;
         this.email = email;
     }
 
     // Getters & Setters
     public Long getId() { return id; }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getUsername() { return username; }
+    public void setUsername(String name) { this.username = name; }
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
