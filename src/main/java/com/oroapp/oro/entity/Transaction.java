@@ -18,9 +18,11 @@ public class Transaction {
 
     // Relationship Mappings
     @ManyToOne
+    @JoinColumn(name = "category_id") // Explicit name for the FK column for Category
     private Category category;
 
     @ManyToOne
+    @JoinColumn(name = "user_id") // Explicit name for the FK column for User
     private User user;
 
     // Constructors
