@@ -2,6 +2,7 @@ package com.oroapp.oro.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -13,7 +14,7 @@ public class Transaction {
     private Long id;
 
     private String description;
-    private Double amount;
+    private BigDecimal amount;
     private LocalDate date;
 
     // Relationship Mappings
@@ -28,7 +29,7 @@ public class Transaction {
     // Constructors
     public Transaction() {}
 
-    public Transaction(String description, Double amount, LocalDate date, Category category, User user) {
+    public Transaction(String description, BigDecimal amount, LocalDate date, Category category, User user) {
         this.description = description;
         this.amount = amount;
         this.date = date;
@@ -43,8 +44,8 @@ public class Transaction {
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public Double getAmount() { return amount; }
-    public void setAmount(Double amount) { this.amount = amount;}
+    public BigDecimal getAmount() { return amount; }
+    public void setAmount(BigDecimal amount) { this.amount = amount;}
 
     public LocalDate getDate() { return date; }
     public void setDate(LocalDate date) { this.date = date; }
