@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface TransactionService {
     Transaction saveTransaction(Transaction transaction);
-    List<Transaction> getTransactionByUser(User user);
+    List<Transaction> getTransactionsByUser(User user);
     List<Transaction> getTransactionsBetweenDates(User user, LocalDate start, LocalDate end);
 }
