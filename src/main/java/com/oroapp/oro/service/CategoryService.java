@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface CategoryService {
     Category saveCategory(Category category);
-    Optional<Category> findByName(String name);
+    Category findByName(String name);
     List<Category> findAll();
 }

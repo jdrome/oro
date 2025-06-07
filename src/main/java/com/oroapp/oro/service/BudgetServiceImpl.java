@@ -3,6 +3,7 @@ package com.oroapp.oro.service;
 import com.oroapp.oro.entity.Budget;
 import com.oroapp.oro.entity.Category;
 import com.oroapp.oro.entity.User;
+import com.oroapp.oro.exception.NotFoundException;
 import com.oroapp.oro.repository.BudgetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,8 @@ public class BudgetServiceImpl implements BudgetService {
     }
 
     @Override
-    public Optional<Budget> getBudgetByUserAndCategory(User user, Category category) {
-        return budgetRepo.findByUserAndCategory(user, category);
+    public Budget getBudgetByUserAndCategory(User user, Category category) {
+        return budgetRepo.findByUserAndCategory(user, category)
+                .orElseThrow(() -> new NotFoundException("Budget not found for user: " + user.getId() + " and category: " + category.getId()));
     }
 }

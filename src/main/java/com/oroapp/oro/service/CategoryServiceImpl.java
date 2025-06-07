@@ -1,6 +1,7 @@
 package com.oroapp.oro.service;
 
 import com.oroapp.oro.entity.Category;
+import com.oroapp.oro.exception.NotFoundException;
 import com.oroapp.oro.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,9 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Optional<Category> findByName(String name) {
-        return categoryRepo.findByName(name);
+    public Category findByName(String name) {
+        return categoryRepo.findByName(name)
+                .orElseThrow(() -> new NotFoundException("Category not found with name: " + name));
     }
 
     @Override
