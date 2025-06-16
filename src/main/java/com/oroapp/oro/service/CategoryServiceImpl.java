@@ -30,6 +30,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public Category findById(Long id) {
+        return categoryRepo.findById(id)
+                .orElseThrow(() -> new NotFoundException("Category not found with id: " + id));
+    }
+
+    @Override
     public List<Category> findAll() {
         return categoryRepo.findAll();
     }
