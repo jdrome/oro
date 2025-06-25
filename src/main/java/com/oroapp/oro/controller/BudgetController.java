@@ -37,8 +37,8 @@ public class BudgetController {
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<Budget>> getBudgetsByUser(@PathVariable Long userId) {
         User user = userService.findById(userId);
-        List<Budget> found = budgetService.getBudgetsByUser(user);
-        return ResponseEntity.ok(found);
+        List<Budget> budgets = budgetService.getBudgetsByUser(user);
+        return ResponseEntity.ok(budgets);
     }
 
     // GET /api/budgets/user/{user}/category/{category}
@@ -46,7 +46,7 @@ public class BudgetController {
     public ResponseEntity<Budget> getBudgetByUserAndCategory(@PathVariable Long userId, @PathVariable Long categoryId) {
         User user = userService.findById(userId);
         Category category = categoryService.findById(categoryId);
-        Budget found = budgetService.getBudgetByUserAndCategory(user, category);
-        return ResponseEntity.ok(found);
+        Budget budget = budgetService.getBudgetByUserAndCategory(user, category);
+        return ResponseEntity.ok(budget);
     }
 }
