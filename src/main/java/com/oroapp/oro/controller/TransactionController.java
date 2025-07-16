@@ -43,12 +43,10 @@ public class TransactionController {
     @GetMapping("/user/{userId}/range")
     public ResponseEntity<List<Transaction>> getTransactionsBetweenDates(
             @PathVariable Long userId,
-            @RequestParam("start") String startDateStr,
-            @RequestParam("end") String endDateStr
+            @RequestParam("start") LocalDate start,
+            @RequestParam("end") LocalDate end
     ) {
         User user = userService.findById(userId);
-        LocalDate start = LocalDate.parse(startDateStr);
-        LocalDate end = LocalDate.parse(endDateStr);
 
         List<Transaction> transactions = transactionService.getTransactionsBetweenDates(user, start, end);
         return ResponseEntity.ok(transactions);
