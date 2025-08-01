@@ -12,6 +12,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String firstName;
+
+    private String lastName;
+
     private String username;
 
     private String email;
@@ -28,13 +32,21 @@ public class User {
     //Constructors
     public User() {}
 
-    public User(String name, String email) {
+    public User(String firstName, String lastName, String name, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = name;
         this.email = email;
     }
 
     // Getters & Setters
     public Long getId() { return id; }
+
+    public String getFirstName() { return firstName; }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
+
+    public String getLastName() { return lastName; }
+    public void setLastName(String lastName) { this.lastName = lastName; }
 
     public String getUsername() { return username; }
     public void setUsername(String name) { this.username = name; }
@@ -49,5 +61,6 @@ public class User {
 
     public List<Budget> getBudgets() { return budgets; }
     public void setBudgets(List<Budget> budgets) { this.budgets = budgets; }
+
 
 }
