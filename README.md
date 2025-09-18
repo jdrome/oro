@@ -75,12 +75,5 @@ spring.profiles.active=dev
 ## 🔄 Seed Test Data (Dev Profile Only)
 When running the app with the `dev` profile, test data will be loaded automatically (e.g. a sample user, category, budget, and transactions).
 
-## 📌 Roadmap
-- [ ] Build out `TransactionController` and `CategoryController`
-- [ ] Add authentication (Spring Security)
-- [ ] Implement data validation & error handling
-- [ ] Add support for recurring budgets/transactions
-- [ ] Build frontend (possible Angular, React, or Vue)
-
 ## 📄 License
 MIT License
