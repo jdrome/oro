@@ -1,5 +1,6 @@
 package com.oroapp.oro.entity;
 
+import com.google.common.annotations.VisibleForTesting;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -29,13 +30,24 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Budget> budgets;
 
-    //Constructors
+    // Default Constructor(JPA)
     public User() {}
 
+    // Application Constructor
     public User(String firstName, String lastName, String name, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = name;
+        this.email = email;
+    }
+
+    // Test-only Constructor
+    @VisibleForTesting
+    public User(Long id, String firstName, String lastName, String username, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
         this.email = email;
     }
 
@@ -61,6 +73,4 @@ public class User {
 
     public List<Budget> getBudgets() { return budgets; }
     public void setBudgets(List<Budget> budgets) { this.budgets = budgets; }
-
-
 }

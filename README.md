@@ -1,12 +1,15 @@
 # Oro 💰
 
-**Oro** is a personal finance tracking application built with **Java Spring Boot**. It allows users to manage budgets, categorize transactions, and track spending habits over time.
+**Oro** is a personal finance application built with Spring Boot. 
+
+Oro helps users track their income, expenses, budgets, and categories.
+The project is currently in development and serves as a learning project in building a layered backend architecture with Spring Boot, DTOs, Mappers, and unit tests.
 
 > ⚠️ This project is currently under active development. Some features may be incomplete or undergoing refactoring.
 
 ---
 
-## 🚀 Technologies Used
+## 💻 Technologies Used
 
 - **Java 17**
 - **Spring Boot**
@@ -18,39 +21,31 @@
 
 ---
 
-## 📁 Project Structure
-oro/
-├── src/
-│ ├── main/
-│ │ └── java/com/oroapp/oro/
-│ │ ├── controller/ # REST Controllers (User, Budget, etc.)
-│ │ ├── entity/ # JPA Entities (User, Budget, Transaction, Category)
-│ │ ├── repository/ # Spring Data JPA Repositories
-│ │ ├── service/ # Service Interfaces and Implementations
-│ │ └── bootstrap/ # Test data loader (for dev profile)
-│ └── resources/
-│ └── application-dev.properties
-├── pom.xml
-└── README.md 👈
-
----
-
-## 🧪 API Endpoints (In Progress)
-
-> These endpoints are available under the `/api` path.
-
-### ✅ Users
-- `POST /api/users` — Create a new user
-- `GET /api/users/{id}` — Get user by ID
-- `GET /api/users/username/{username}` — Get user by username
-
-### ✅ Budgets
-- `POST /api/budgets` — Create a new budget
-- `GET /api/budgets/user/{userId}` — Get budgets for a user
-- `GET /api/budgets/user/{userId}/category/{categoryId}` — Get a specific budget
-
-_Transactions and categories are coming soon..._
-
+## 🚀 Features
+- Entities:
+  - `User` (tracks first name, last name, username, email, password)
+  - `Category` (expense/income categories)
+  - `Budget` (linked to users and categories)
+  - `Transaction` (linked to users and categories)
+- DTOs (Data Transfer Objects):
+  - `UserDTO` (exposes safe user info without password)
+  - `CategoryDTO`
+- Mappers:
+  - `UserMapper` (converts between `User` and `UserDTO`)
+  - `CategoryMapper` (converts between `Category` and `CategoryDTO`)
+- Controllers
+  - `UserController`
+    - `POST /api/users` — Create a new user
+    - `GET /api/users/{id}` — Get user by ID
+    - `GET /api/users/username/{username}` — Get user by username
+  - `CategoryController`
+    - `POST /api/categories` - Create new category
+    - `GET /api/categories/id/{id}` - Fetch category by ID
+    - `GET /api/categories/name/{name}` - Fetch category by name
+    - `GET /api/categories` - List all categories 
+  - Tests
+    - `UserControllerTest` (using MockMvc & JUnit)
+    - `CategoryControllerTest`
 ---
 
 ## 🧰 Local Development Setup
