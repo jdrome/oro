@@ -5,8 +5,6 @@
 Oro helps users track their income, expenses, budgets, and categories.
 The project is currently in development and serves as a learning project in building a layered backend architecture with Spring Boot, DTOs, Mappers, and unit tests.
 
-> ⚠️ This project is currently under active development. Some features may be incomplete or undergoing refactoring.
-
 ---
 
 ## 💻 Technologies Used
