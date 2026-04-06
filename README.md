@@ -1,6 +1,6 @@
 # Oro 💰
 
-**Oro** is a personal finance application built with Spring Boot. 
+**Oro** is a practice personal finance application built with Spring Boot. 
 
 Oro helps users track their income, expenses, budgets, and categories.
 The project is currently in development and serves as a learning project in building a layered backend architecture with Spring Boot, DTOs, Mappers, and unit tests.
